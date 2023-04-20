@@ -1,0 +1,35 @@
+{
+  "name": "com.abeezer.cordovactin",
+  "displayName": "corodovACTin",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "clevertap-cordova": "github:CleverTap/clevertap-cordova",
+    "cordova-android": "^10.1.1",
+    "cordova-ios": "^6.2.0",
+    "cordova-plugin-inappbrowser": "^5.0.0"
+  },
+  "cordova": {
+    "plugins": {
+      "clevertap-cordova": {
+        "CLEVERTAP_ACCOUNT_ID": "TEST-86Z-999-446Z",
+        "CLEVERTAP_TOKEN": "TEST-ccc-16b",
+        "CLEVERTAP_REGION": "eu1"
+      },
+      "cordova-plugin-inappbrowser": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

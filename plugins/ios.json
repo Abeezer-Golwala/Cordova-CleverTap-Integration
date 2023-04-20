@@ -1,0 +1,21 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "clevertap-cordova": {
+      "CLEVERTAP_ACCOUNT_ID": "TEST-86Z-999-446Z",
+      "CLEVERTAP_TOKEN": "TEST-ccc-16b",
+      "CLEVERTAP_REGION": "eu1",
+      "PACKAGE_NAME": "com.abeezer.cordovaCTin"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.abeezer.cordovaCTin"
+    }
+  },
+  "dependent_plugins": {}
+}

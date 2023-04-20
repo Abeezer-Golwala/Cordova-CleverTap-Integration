@@ -1,0 +1,22 @@
+{
+  "clevertap-cordova": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/CleverTap/clevertap-cordova.git"
+    },
+    "is_top_level": true,
+    "variables": {
+      "CLEVERTAP_ACCOUNT_ID": "TEST-86Z-999-446Z",
+      "CLEVERTAP_TOKEN": "TEST-ccc-16b",
+      "CLEVERTAP_REGION": "eu1"
+    }
+  },
+  "cordova-plugin-inappbrowser": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-inappbrowser@5.0.0"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
