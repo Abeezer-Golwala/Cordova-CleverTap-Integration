@@ -9,7 +9,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService">
+        <service android:name=".fcm">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -23,6 +23,11 @@
         <meta-data android:name="CLEVERTAP_TOKEN" android:value="TEST-ccc-16b" />
         <meta-data android:name="CLEVERTAP_REGION" android:value="eu1" />
         <receiver android:enabled="true" android:exported="false" android:name="com.clevertap.android.sdk.pushnotification.CTPushNotificationReceiver" />
+        <service android:name="com.clevertap.android.sdk.pushnotification.fcm.FcmMessageListenerService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />

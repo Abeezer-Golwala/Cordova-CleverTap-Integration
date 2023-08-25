@@ -20,7 +20,9 @@ function onDeviceReady() {
 //    ref.show();
     ref.addEventListener('message', messageCallBack);
 
+
 }
+
 function messageCallBack(params){
 console.log("webview"+JSON.stringify(params));
 var clevertapdata = JSON.parse(JSON.stringify(params.data));

@@ -29,7 +29,7 @@ var clevertapdata = JSON.parse(JSON.stringify(params.data));
   //checking the type of the data recieved from webview if its an event, onuserlogin or profile set data.
     if (JSON.stringify(clevertapdata.Type) == "\"event\""){
       console.log("test"+clevertapdata.Type);
-      CleverTap.recordEventWithName(clevertapdata.EventName,clevertapdata.Payload);
+      CleverTap.recordEventWithNameAndProps(clevertapdata.EventName,clevertapdata.Payload);
       console.log(JSON.stringify(clevertapdata.Type)+"\n"+JSON.stringify(clevertapdata.Payload));
     }
     else if (JSON.stringify(clevertapdata.Type) == "\"onuserlogin\""){
@@ -40,20 +40,21 @@ var clevertapdata = JSON.parse(JSON.stringify(params.data));
       CleverTap.profileSet(clevertapdata.Payload);
       console.log(JSON.stringify(clevertapdata.Type)+"\n"+JSON.stringify(clevertapdata.Payload));
     }
-    else if (JSON.stringify(clevertapdata.Type) == "\"chargedevent\""){
-      CleverTap.recordChargedEvent(clevertapdata.chargedetails, clevertapdata.items);
+    else if (JSON.stringify(clevertapdata.Type) == "\"recordChargedEventWithDetailsAndItems\""){
+      CleverTap.recordChargedEventWithDetailsAndItems(clevertapdata.chargedetails, clevertapdata.items);
       console.log(JSON.stringify(clevertapdata.Type)+"\n"+JSON.stringify(clevertapdata.chargedetails)+"\n"+JSON.stringify(clevertapdata.items));
     }
-    else if (JSON.stringify(clevertapdata.Type) == "\"profileSetMultiValuesForKey\""){
-      CleverTap.profileSetMultiValuesForKey(clevertapdata.values, clevertapdata.key);
+    else if (JSON.stringify(clevertapdata.Type) == "\"profileSetMultiValues\""){
+      CleverTap.profileSetMultiValues(clevertapdata.key, clevertapdata.value);
       console.log(JSON.stringify(clevertapdata.Type)+"\n"+JSON.stringify(clevertapdata.key)+"\n"+JSON.stringify(clevertapdata.values));
     }
-    else if (JSON.stringify(clevertapdata.Type) == "\"profileRemoveMultiValueForKey\""){
-      CleverTap.profileRemoveMultiValueForKey(clevertapdata.value, clevertapdata.key);
+    else if (JSON.stringify(clevertapdata.Type) == "\"profileRemoveMultiValue\""){
+      CleverTap.profileRemoveMultiValue(clevertapdata.key, clevertapdata.value);
       console.log(JSON.stringify(clevertapdata.Type)+"\n"+JSON.stringify(clevertapdata.key)+"\n"+JSON.stringify(clevertapdata.value));
     }
     else if (JSON.stringify(clevertapdata.Type) == "\"profileAddMultiValueForKey\""){
-      CleverTap.profileAddMultiValueForKey(clevertapdata.value, clevertapdata.key);
+
+      CleverTap.profileAddMultiValue(clevertapdata.key, clevertapdata.value);
       console.log(JSON.stringify(clevertapdata.Type)+"\n"+JSON.stringify(clevertapdata.key)+"\n"+JSON.stringify(clevertapdata.value));
     }
 
@@ -65,7 +66,7 @@ function onInboxCordova()
 {
     CleverTap.recordEventWithName("Abeezergetmsg");
     CleverTap.showInbox({});
-    CleverTap.createNotification()
+    CleverTap.createNotification();
 }
 
 

@@ -49,6 +49,8 @@ Update your .plist file:
 
 For more details, refer to our [installation guide](https://developer.clevertap.com/docs/ios-quickstart-guide) for instructions on installing and using our iOS SDK in your project.
 
+To get started with Custom Proxy domain feature, refer to our [Custom domain setup guide](/docs/CustomDomainSetup.md) for instructions on enabling this feature with AWS proxy setup.
+
 ## 📲 Rich Push Notifications
 
 Apart from Title and Message, you have the below-mentioned options to add to your iOS push notification. Please note that each of these is optional.
@@ -60,6 +62,14 @@ For more details, refer to our [Advanced iOS Push Notifications](https://develop
 ## 📍 Geofence 
 
 CleverTap Geofence SDK provides Geofencing capabilities to CleverTap iOS SDK. To find the installation & integration steps for CleverTap Geofence SDK, click [here](https://github.com/CleverTap/clevertap-geofence-ios).
+
+## Push Primer
+
+CleverTap iOS SDK supports Push Primer for push notification runtime permission, refer [Push Primer doc](/docs/PushPrimer.md) for more details.
+
+## Remote Config Variables
+
+CleverTap iOS SDK supports creating remote config variables, refer [Remote Config Variables](/docs/Variables.md) for more details and usage examples.
 
 ## 𝌡 Example Usage
 * A [demo application](/ObjCStarter) showing the integration of our SDK in Objective-C language.

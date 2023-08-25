@@ -31,5 +31,6 @@
 - (void)forceNewDeviceID;
 - (void)forceUpdateCustomDeviceID:(NSString *)cleverTapID;
 - (BOOL)isErrorDeviceID;
-
+- (void)incrementLocalInAppCount;
+- (int)getLocalInAppCount;
 @end

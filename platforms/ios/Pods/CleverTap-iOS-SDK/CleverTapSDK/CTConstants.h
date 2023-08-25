@@ -2,6 +2,24 @@
 
 extern NSString *const kCTApiDomain;
 extern NSString *const kCTNotifViewedApiDomain;
+extern NSString *const kHANDSHAKE_URL;
+extern NSString *CT_KIND_INT;
+extern NSString *CT_KIND_FLOAT;
+extern NSString *CT_KIND_STRING;
+extern NSString *CT_KIND_BOOLEAN;
+extern NSString *CT_KIND_DICTIONARY;
+extern NSString *CLEVERTAP_DEFAULTS_VARIABLES_KEY;
+extern NSString *CLEVERTAP_DEFAULTS_VARS_JSON_KEY;
+
+extern NSString *CT_PE_DEFINE_VARS_ENDPOINT;
+extern NSString *CT_PE_VARS_PAYLOAD_TYPE;
+extern NSString *CT_PE_VARS_PAYLOAD_KEY;
+extern NSString *CT_PE_VAR_TYPE;
+extern NSString *CT_PE_NUMBER_TYPE;
+extern NSString *CT_PE_BOOL_TYPE;
+extern NSString *CT_PE_DEFAULT_VALUE;
+
+extern NSString *CLTAP_PROFILE_IDENTITY_KEY;
 
 #define CleverTapLogInfo(level, fmt, ...)  if(level >= 0) { NSLog((@"%@" fmt), @"[CleverTap]: ", ##__VA_ARGS__); }
 #define CleverTapLogDebug(level, fmt, ...) if(level > 0) { NSLog((@"%@" fmt), @"[CleverTap]: ", ##__VA_ARGS__); }
@@ -10,10 +28,19 @@ extern NSString *const kCTNotifViewedApiDomain;
 #define CleverTapLogStaticDebug(fmt, ...) if([CTLogger getDebugLevel] > 0) { NSLog((@"%@" fmt), @"[CleverTap]: ", ##__VA_ARGS__); }
 #define CleverTapLogStaticInternal(fmt, ...) if([CTLogger getDebugLevel] > 1) { NSLog((@"%@" fmt), @"[CleverTap]: ", ##__VA_ARGS__); }
 
+
+
+#define CT_TRY @try {
+#define CT_END_TRY }\
+@catch (NSException *e) {\
+[CTLogger logInternalError:e]; }
+
 #define CLTAP_REQUEST_TIME_OUT_INTERVAL 10
 #define CLTAP_ACCOUNT_ID_LABEL @"CleverTapAccountID"
 #define CLTAP_TOKEN_LABEL @"CleverTapToken"
 #define CLTAP_REGION_LABEL @"CleverTapRegion"
+#define CLTAP_PROXY_DOMAIN_LABEL @"CleverTapProxyDomain"
+#define CLTAP_SPIKY_PROXY_DOMAIN_LABEL @"CleverTapSpikyProxyDomain"
 #define CLTAP_DISABLE_APP_LAUNCH_LABEL @"CleverTapDisableAppLaunched"
 #define CLTAP_USE_CUSTOM_CLEVERTAP_ID_LABEL @"CleverTapUseCustomId"
 #define CLTAP_DISABLE_IDFV_LABEL @"CleverTapDisableIDFV"
@@ -27,6 +54,11 @@ extern NSString *const kCTNotifViewedApiDomain;
 #define CLTAP_NOTIFICATION_VIEWED_EVENT_NAME @"Notification Viewed"
 #define CLTAP_GEOFENCE_ENTERED_EVENT_NAME @"Geocluster Entered"
 #define CLTAP_GEOFENCE_EXITED_EVENT_NAME @"Geocluster Exited"
+
+#define CLTAP_SIGNED_CALL_OUTGOING_EVENT_NAME @"SCOutgoing"
+#define CLTAP_SIGNED_CALL_INCOMING_EVENT_NAME @"SCIncoming"
+#define CLTAP_SIGNED_CALL_END_EVENT_NAME @"SCEnd"
+
 #define CLTAP_PREFS_LAST_DAILY_PUSHED_EVENTS_DATE @"lastDailyEventsPushedDate"
 #define CLTAP_SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 #define CLTAP_APP_LAUNCHED_EVENT @"App Launched"
@@ -56,6 +88,7 @@ extern NSString *const kCTNotifViewedApiDomain;
 #define CLTAP_PRODUCT_CONFIG_JSON_RESPONSE_KEY @"pc_notifs"
 #define CLTAP_PREFS_INAPP_KEY @"inapp_notifs"
 #define CLTAP_GEOFENCES_JSON_RESPONSE_KEY @"geofences"
+#define CLTAP_PE_VARS_RESPONSE_KEY @"vars"
 #define CLTAP_DISCARDED_EVENT_JSON_KEY @"d_e"
 #define CLTAP_INAPP_CLOSE_IV_WIDTH 40
 #define CLTAP_NOTIFICATION_ID_TAG @"wzrk_id"
@@ -114,5 +147,9 @@ extern NSString *const kCTNotifViewedApiDomain;
 #define CLTAP_GEOFENCES_DID_UPDATE_NOTIFICATION @"CleverTapGeofencesDidUpdateNotification"
 
 // valid profile identifier keys
-#define CLTAP_PROFILE_IDENTIFIER_KEYS @[@"Identity", @"Email", @"FBID", @"GPID"]
+#define CLTAP_PROFILE_IDENTIFIER_KEYS @[@"Identity", @"Email"] // LEGACY KEYS
+#define CLTAP_ALL_PROFILE_IDENTIFIER_KEYS @[@"Identity", @"Email", @"Phone"]
+
+#define CLTAP_DEFINE_VARS_URL @"/defineVars"
+
 

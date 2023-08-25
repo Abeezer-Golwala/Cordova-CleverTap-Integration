@@ -4,5 +4,5 @@ platform :ios, '11.0'
 
 target 'corodovACTin' do
 	project 'corodovACTin.xcodeproj'
-	pod 'CleverTap-iOS-SDK', '3.10.0'
+	pod 'CleverTap-iOS-SDK'
 end

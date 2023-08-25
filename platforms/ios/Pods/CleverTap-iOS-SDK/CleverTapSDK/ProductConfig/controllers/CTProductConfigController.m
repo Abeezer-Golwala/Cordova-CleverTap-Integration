@@ -1,7 +1,6 @@
 #import "CTProductConfigController.h"
 #import "CTConstants.h"
 #import "CTPreferences.h"
-#import "CTPreferences.h"
 #import "CleverTapInstanceConfig.h"
 #import "CleverTapProductConfigPrivate.h"
 
@@ -171,7 +170,8 @@ typedef void (^CTProductConfigOperationBlock)(void);
     NSString *filePath = [self dataArchiveFileName];
     __weak CTProductConfigController *weakSelf = self;
     CTProductConfigOperationBlock opBlock = ^{
-        NSArray *data = [CTPreferences unarchiveFromFile:filePath removeFile:YES];
+        NSSet *allowedClasses = [NSSet setWithObjects:[NSArray class], [NSDictionary class], nil];
+        NSArray *data = [CTPreferences unarchiveFromFile: filePath ofTypes: allowedClasses removeFile: YES];
         if (data) {
             [weakSelf _updateProductConfig:data isNew:NO];
         }
